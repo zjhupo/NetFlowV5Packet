@@ -1,0 +1,12 @@
+void __fastcall TnfFrmMain::IdUDPServer1UDPRead(TObject *Sender,
+      TStream *AData, TIdSocketHandle *ABinding)
+{
+    int iSize = AData->Read(buf,sizeof(buf));
+     
+    PNETFLOW5 vFlow = Encode_NetFlow5(ABinding->PeerIP.c_str(),buf,iSize); 
+    if(vFlow!=NULL)
+    {
+        //TODO:´¦Àí´úÂë
+    }
+    delete vFlow;
+}
